@@ -1,4 +1,7 @@
 RandysEcommerceStore::Application.routes.draw do
+  resources :about_us
+
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
