@@ -1,21 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<h2><%= @platform.name %></h2>
-
-<p><%= @platform.description %></p>
+<h2>Recently Updated<small>Whats new..</small></h2>
 
 <% @products.each do |product| %>
 <article class="products span2">
-	<%= image_tag(product.image) %>
+    <%= image_tag(product.image) %>
     <h5><%= product.name %></h5>
-    <span>$<%= product.price %></span>
+    <small>$<%= product.price %></small>
     <% if (product.stock_quantity > 0) %>
         <p><b>Stock:</b> <%= product.stock_quantity %></p>
     <% else %>
         <p><b>Out of stock!</b></p>
     <% end if %>
-    <%= link_to 'View', product %>
+    <%= link_to 'View Details', product %>
 </article>
 <% end %>
-
-<%= link_to 'Back', platforms_path %>

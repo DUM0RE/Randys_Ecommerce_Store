@@ -152,6 +152,7 @@ DEPENDENCIES
   activeadmin
   coffee-rails (~> 3.2.1)
   jquery-rails
+  kaminari
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   sqlite3

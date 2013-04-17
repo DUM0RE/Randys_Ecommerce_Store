@@ -1,7 +1,10 @@
 <h2>Latest Games <small>The best games available to date</small></h1>
 
+<%= paginate @products %>
+
 <% @products.each do |product| %>
 <article class="products span2">
+    <%= image_tag(product.image) %>
     <h5><%= product.name %></h5>
     <% case product.platform_id %>
 	  <% when 1 %>
@@ -13,7 +16,6 @@
 	  <% when 4 %>
 	  	<p>On PC</p>
 	<% end %>
-    <%= image_tag(product.image) %>
     <span>$<%= product.price %></span>
     <% if (product.stock_quantity > 0) %>
         <p><b>Stock:</b> <%= product.stock_quantity %></p>

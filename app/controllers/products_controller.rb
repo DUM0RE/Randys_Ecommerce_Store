@@ -2,10 +2,39 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
-
+    @products = Product.order("name").page(params[:page]).per(5)
     respond_to do |format|
       format.html # index.html.erb
+      format.json { render json: @products }
+    end
+  end
+
+  def search_results
+    keywords = params[:keywords]
+    @products = Product.where("name LIKE '%#{keywords}%'")
+    if @products.empty?
+      @safety = "No products found."
+    else
+      @safety = ""
+    end
+    respond_to do |format|
+    format.html # search_results.html.erb
+    format.json { render json: @products }
+    end
+  end
+
+  def sales
+    @products = Product.where(:on_sale => true)
+    respond_to do |format|
+      format.html # sales.html.erb
+      format.json { render json: @products }
+    end
+  end
+
+  def recently_updated
+    @products = Product.order("updated_at").reverse
+    respond_to do |format|
+      format.html # newest.html.erb
       format.json { render json: @products }
     end
   end

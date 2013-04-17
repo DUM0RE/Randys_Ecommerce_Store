@@ -53,6 +53,32 @@ class CustomersController < ApplicationController
     end
   end
 
+  def login_form
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json {render json: @customer}
+    end
+  end
+
+  def login
+    email = params[:email]
+    password = params[:password]
+    respond_to do |format|
+      begin
+        session[:user_id] = Customer.where("email = '#{email}' AND password = '#{password}'").first.id
+        format.html { redirect_to root_url }
+      rescue
+        flash[:warning] = "Login Failed"
+        format.html { redirect_to "login_form" }
+      end
+    end
+  end
+
+  def logout
+    reset_session
+    redirect_to root_url
+  end
+
   # PUT /customers/1
   # PUT /customers/1.json
   def update

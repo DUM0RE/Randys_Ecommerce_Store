@@ -1,0 +1,16 @@
+<h2>Onsale Items <small>Get em' while they're hot</small></h1>
+
+<% @products.each do |product| %>
+<article class="onsale span2">
+    <%= image_tag(product.image) %>
+    <h5><%= product.name %></h5>
+    <small>Reg. $<%= product.price %></small>
+    <span>$<%= product.sale_price %></span>
+    <% if (product.stock_quantity > 0) %>
+        <p><b>Stock:</b> <%= product.stock_quantity %></p>
+    <% else %>
+        <p><b>Out of stock!</b></p>
+    <% end if %>
+    <%= link_to 'View Details', product %>
+</article>
+<% end %>

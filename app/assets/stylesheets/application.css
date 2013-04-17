@@ -27,6 +27,11 @@ a:hover {
 	margin: 8px 0 0 5px;
 } 
 
+.boxart {
+	float: left;
+	margin: 15px 15px 15px 0;
+}
+
 .products {
 	border-right: 2px solid #ECF0F1;
 	height: 430px;
@@ -45,6 +50,27 @@ a:hover {
 .products img {
 	max-height: 184px;
 	margin: 10px 0 15px 0;
+}
+
+.onsale {
+	float: left;
+	display: inline;
+	margin-bottom: 15px;
+}
+
+.onsale img {
+	margin: 10px 0 15px 0;
+	max-height: 184px;
+}
+
+.onsale small {
+	display: block;
+}
+
+.onsale span {
+	display:block;
+	font-size: 20px;
+	color: #2ECC71;
 }
 
 form#contact input {
@@ -122,23 +148,19 @@ header#header-main h1 span {
 	font-weight: normal;
 }
 
-form#search {
+div#search {
 	float: left;
 	position: relative;
 	top: 20px;
-	left: 140px;
+	left: 120px;
+	display: inline;
 }
 
-.welcome {
-	position: relative;
-	top: 20px;
-	left: 140px;
-	font-size: 11px;
-}
-
-form#search button {
+div#search input {
 	padding: 10px;
 	margin-bottom: 10px;
+	float: left;
+	display: inline;
 }
 
 section#wrap {
@@ -150,7 +172,6 @@ section#wrap {
 
 section#featured {
 	margin: 0 0 25px -15px;
-	height: 125px;
 	padding: 15px;
 	background: #ECF0F1;
 }
@@ -159,6 +180,7 @@ img#onsale {
 	position: relative;
 	top: -23px;
 	left: 799px;
+	float: left;
 }
 
 section#body {

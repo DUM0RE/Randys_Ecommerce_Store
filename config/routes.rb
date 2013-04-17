@@ -13,6 +13,13 @@ RandysEcommerceStore::Application.routes.draw do
   resources :contact_us
   resources :about_us
 
+  match "/search_results" => "products#search_results"
+  match "/sales" => "products#sales"
+  match "/recently_updated" => "products#recently_updated"
+  match "/login" => "customers#login"
+  match "/login_form" => "customers#login_form"
+  match "/register" => "customers#new"
+  match "/logout" => "customers#logout"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

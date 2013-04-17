@@ -14,6 +14,7 @@ class PlatformsController < ApplicationController
   # GET /platforms/1.json
   def show
     @platform = Platform.find(params[:id])
+    @products = Product.where("platform_id = #{@platform.id}")
 
     respond_to do |format|
       format.html # show.html.erb

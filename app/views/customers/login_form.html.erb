@@ -1,0 +1,10 @@
+<%= form_tag("/login") do %>
+	<%= flash["warning"] %>
+	<%= label_tag(:email, "Email:") %>
+	<%= text_field_tag(:email) %>
+	<br />
+	<%= label_tag(:password, "Password:") %>
+	<%= text_field_tag(:password) %>
+	<br />
+	<%= submit_tag("Login") %>
+<% end %>

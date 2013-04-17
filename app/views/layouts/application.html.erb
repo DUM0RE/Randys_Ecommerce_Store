@@ -12,7 +12,7 @@
       <div class="navbar-inner">
         <div class="container">
             <ul class="nav">
-	            <li><a href="./">Home</a></li>
+	            <li><a href="/">Home</a></li>
 	            <li>
 	                <a href="/platforms">Select a Platform<span class="caret"></span></a>
 	                <ul>
@@ -22,8 +22,9 @@
 	                    <li><%= link_to "PC", platform_path(4) %></li>
 	                </ul> <!-- /Sub menu -->
 	            </li>
+	            <li><%= link_to "Onsale items", :controller =>"products", :action => "sales" %></li>
+	            <li><%= link_to "Recently Updated", :controller =>"products", :action => "recently_updated" %></li>
 	            <li><%= link_to "About us", :controller =>"about_us", :action =>"index" %></li>
-	            <li><%= link_to "Staff", :controller =>"employees", :action =>"index" %></li>
 	            <li><%= link_to "Contact us", :controller =>"contact_us", :action =>"index" %></li>
              </ul>
 
@@ -41,22 +42,22 @@
 	<header id="header-main" class="container">
 			<%= image_tag("logo.jpg", :alt => "Randy Bo Bandy", :class => "pull-left") %>
 			<h1>Randy's Video Games <span>Your one stop destination for video games.</span></h1>
-			<p class="welcome">Welcome, please login or register an account.</p>
-			<form id="search">
-			  <input class="span4" type="text" placeholder="Looking for something?">
-	          <button type="submit" class="btn">Search</button>
-		    </form>
+			<div class="span5" id="search">
+				 <% if session[:user_id] %>
+				 	Welcome, <%= Customer.where("id = #{session[:user_id]}").first.name %> - <%= link_to "Logout", :controller =>"customers", :action => "logout" %>
+				 <% else %>
+				 	<%= link_to "Login", :controller =>"customers", :action =>"login_form" %>
+             	 	<%= link_to "Register", :controller =>"customers", :action =>"new" %>
+             	 <% end %>
+				<%= form_tag(search_results_path) do %>
+					<%= label_tag(:keywords, "Looking for something?") %>
+					<%= text_field_tag(:keywords) %>
+				<% end %>
+			</div>
 		    <div class="clearfix"></div>
 	</header> 
 
 	<section id="wrap" class="container">
-		<section id="featured" class="span12">
-			<%= image_tag("onsale.png", :alt => "On Sale", :id => "onsale") %>
-			<div class="container">
-				<%= render "products/onsale" %>
-			</div>
-		</section>
-
 		<aside id="sidebar" class="span3">
 			<%= render "layouts/sidebar" %>
 		</aside>

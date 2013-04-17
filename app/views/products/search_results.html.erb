@@ -1,0 +1,5 @@
+<h2>Looking for something?<small>Maybe we can find it for you</small></h2>
+<% @products.each do |product| %>
+  <h3><%= link_to(product.name, "products/#{product.id}") %></h3>
+<% end %>
+<p><%= @safety %></p>
