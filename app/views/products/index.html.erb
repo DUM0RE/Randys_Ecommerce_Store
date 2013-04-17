@@ -1,31 +1,14 @@
-<h1>Listing products</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Stock quantity</th>
-    <th>Platform</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h2>Latest Games <small>The best games available to date</small></h1>
 
 <% @products.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= product.description %></td>
-    <td><%= product.price %></td>
-    <td><%= product.stock_quantity %></td>
-    <td><%= product.platform_id %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<article id="product">
+    <h5><%= product.name %></h5>
+    <p><%= product.price %></p>
+    <% if (product.stock_quantity > 0) %>
+        <p>Stock: <%= product.stock_quantity %></p>
+    <% else %>
+        <p>Out of stock!</p>
+    <% end %>
+    <%= link_to 'View', product %>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Product', new_product_path %>
