@@ -1,14 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RandysEcommerceStore</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <title>Randys Video Games - Your one stop destination for video games</title>
+  <%= stylesheet_link_tag  "bootstrap", :media => "all" %>
+  <%= stylesheet_link_tag  "application", :media => "all" %>
+  <%= stylesheet_link_tag  "flat-ui", :media => "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<nav id="nav-main" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <ul class="nav">
+	            <li><a href="./">Home</a></li>
+	            <li>
+	                <a href="/platforms">Select a Platform<span class="caret"></span></a>
+	                <ul>
+	                    <li><%= link_to "Xbox 360", platform_path(1) %></li>
+	                    <li><%= link_to "Playstation 3", platform_path(2) %></li>
+	                    <li><%= link_to "Nintendo Wii", platform_path(3) %></li>
+	                    <li><%= link_to "PC", platform_path(4) %></li>
+	                </ul> <!-- /Sub menu -->
+	            </li>
+	            <li><%= link_to "About us", :controller =>"about_us", :action =>"index" %></li>
+	            <li><%= link_to "Staff", :controller =>"employees", :action =>"index" %></li>
+	            <li><%= link_to "Contact us", :controller =>"contact_us", :action =>"index" %></li>
+             </ul>
 
-<%= yield %>
+             <section id="member-area" class="pull-right">
+	             <button id="shopping-cart" class="btn pull-right">
+	             	(0) Your Cart
+	             </button>
+	             <button id="checkout" class="btn pull-right">Checkout</button>
+	             <div class="clearfix"></div>
+         	 </section>
+        </div>
+      </div>
+    </nav>
 
+	<header id="header-main" class="container">
+			<%= image_tag("logo.jpg", :alt => "Randy Bo Bandy", :class => "pull-left") %>
+			<h1>Randy's Video Games <span>Your one stop destination for video games.</span></h1>
+			<p class="welcome">Welcome, please login or register an account.</p>
+			<form id="search">
+			  <input class="span4" type="text" placeholder="Looking for something?">
+	          <button type="submit" class="btn">Search</button>
+		    </form>
+		    <div class="clearfix"></div>
+	</header> 
+
+	<section id="wrap" class="container">
+		<section id="featured" class="span12">
+			<%= image_tag("onsale.png", :alt => "On Sale", :id => "onsale") %>
+			<div class="container">
+				<%= render "products/onsale" %>
+			</div>
+		</section>
+
+		<aside id="sidebar" class="span3">
+			<%= render "layouts/sidebar" %>
+		</aside>
+
+		<section id="content" class="span8">
+			<%= yield %>
+		</section>
+
+		<div class="push"></div>
+	</section>
+
+	<footer id="footer-main">
+		<div class="container">
+			<p class="pull-left">&copy; Copyright Randy's Video Games 2013 - 2014</p>
+		</div>
+	</footer>
 </body>
+<!-- Load up that good, good -->
+	<%= javascript_include_tag "bootstrap" %>
+	<%= javascript_include_tag "bootstrap-tooltip" %>
+	<%= javascript_include_tag "custom_checkbox_and_radio" %>
+	<%= javascript_include_tag "custom_radio" %>
+	<%= javascript_include_tag "icon-font-ie7" %>
+	<%= javascript_include_tag "jquery.dropkick-1.0.0" %>
+	<%= javascript_include_tag "jquery.placeholder" %>
+	<%= javascript_include_tag "jquery.tagsinput" %>
+	<%= javascript_include_tag "jquery-1.8.2.min" %>
+	<%= javascript_include_tag "jquery-ui-1.10.0.custom.min" %>
+	<%= javascript_include_tag "lte-ie7-24" %>
 </html>
