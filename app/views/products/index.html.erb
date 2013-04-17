@@ -1,14 +1,26 @@
 <h2>Latest Games <small>The best games available to date</small></h1>
 
 <% @products.each do |product| %>
-<article id="product">
+<article class="products span2">
     <h5><%= product.name %></h5>
-    <p><%= product.price %></p>
+    <% case product.platform_id %>
+	  <% when 1 %>
+	    <p>On Xbox 360</p>
+	  <% when 2 %>
+	    <p>On Playstation 3</p>
+	  <% when 3 %>
+	    <p>On Nintendo Wii</p>
+	  <% when 4 %>
+	  	<p>On PC</p>
+	<% end %>
+    <%= image_tag(product.image) %>
+    <span>$<%= product.price %></span>
     <% if (product.stock_quantity > 0) %>
-        <p>Stock: <%= product.stock_quantity %></p>
+        <p><b>Stock:</b> <%= product.stock_quantity %></p>
     <% else %>
-        <p>Out of stock!</p>
-    <% end %>
+        <p><b>Out of stock!</b></p>
+    <% end if %>
     <%= link_to 'View', product %>
+</article>
 <% end %>
 
