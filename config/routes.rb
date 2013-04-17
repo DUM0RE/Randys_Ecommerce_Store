@@ -1,4 +1,7 @@
 RandysEcommerceStore::Application.routes.draw do
+  resources :contact_us
+
+
   resources :about_us
 
 
