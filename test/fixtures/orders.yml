@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  status: MyString
+  total: 9.99
+  subtotal: 9.99
+  pst: 9.99
+  gst: 9.99
+  hst: 9.99
+  payment_processor: MyString
+  payment_identifier: MyString
+  customer_id: 1
+
+two:
+  status: MyString
+  total: 9.99
+  subtotal: 9.99
+  pst: 9.99
+  gst: 9.99
+  hst: 9.99
+  payment_processor: MyString
+  payment_identifier: MyString
+  customer_id: 1

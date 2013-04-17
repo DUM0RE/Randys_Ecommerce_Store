@@ -1,4 +1,22 @@
 RandysEcommerceStore::Application.routes.draw do
+  resources :provinces
+
+
+  resources :products
+
+
+  resources :orders
+
+
+  resources :line_items
+
+
+  resources :customers
+
+
+  resources :platforms
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Status:</b>
+  <%= @order.status %>
+</p>
+
+<p>
+  <b>Total:</b>
+  <%= @order.total %>
+</p>
+
+<p>
+  <b>Subtotal:</b>
+  <%= @order.subtotal %>
+</p>
+
+<p>
+  <b>Pst:</b>
+  <%= @order.pst %>
+</p>
+
+<p>
+  <b>Gst:</b>
+  <%= @order.gst %>
+</p>
+
+<p>
+  <b>Hst:</b>
+  <%= @order.hst %>
+</p>
+
+<p>
+  <b>Payment processor:</b>
+  <%= @order.payment_processor %>
+</p>
+
+<p>
+  <b>Payment identifier:</b>
+  <%= @order.payment_identifier %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%= @order.customer_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
