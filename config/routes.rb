@@ -2,21 +2,13 @@ RandysEcommerceStore::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  root :to => 'products#index'
+  
   resources :provinces
-
-
   resources :products
-
-
   resources :orders
-
-
   resources :line_items
-
-
   resources :customers
-
-
   resources :platforms
 
 
