@@ -20,16 +20,24 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
+    <%= f.label :platform_id %><br />
+    <%= f.number_field :platform_id %>
+  </div>
+  <div class="field">
+    <%= f.label :on_sale %><br />
+    <%= f.check_box :on_sale %>
+  </div>
+  <div class="field">
+    <%= f.label :sale_price %><br />
+    <%= f.text_field :sale_price %>
+  </div>
+  <div class="field">
     <%= f.label :price %><br />
     <%= f.text_field :price %>
   </div>
   <div class="field">
     <%= f.label :stock_quantity %><br />
     <%= f.number_field :stock_quantity %>
-  </div>
-  <div class="field">
-    <%= f.label :platform_id %><br />
-    <%= f.number_field :platform_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
