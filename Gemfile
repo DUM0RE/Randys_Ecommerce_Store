@@ -22,6 +22,9 @@ end
 
 gem 'jquery-rails'
 
+# To use activeadmin
+gem 'activeadmin'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
