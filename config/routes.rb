@@ -1,14 +1,8 @@
 RandysEcommerceStore::Application.routes.draw do
-  resources :contact_us
-
-
-  resources :about_us
-
-
+  root :to => 'products#index'
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-
-  root :to => 'products#index'
   
   resources :provinces
   resources :products
@@ -16,6 +10,8 @@ RandysEcommerceStore::Application.routes.draw do
   resources :line_items
   resources :customers
   resources :platforms
+  resources :contact_us
+  resources :about_us
 
 
   # The priority is based upon order of creation:
