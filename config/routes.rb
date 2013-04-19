@@ -1,4 +1,7 @@
 RandysEcommerceStore::Application.routes.draw do
+  resources :cart_items
+
+
   root :to => 'products#index'
   
   devise_for :admin_users, ActiveAdmin::Devise.config
